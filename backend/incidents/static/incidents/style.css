@@ -1,0 +1,91 @@
+.filtering {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#applyFilter {
+    font-weight: bold;
+    width: 5em;
+    margin-right: 2em;
+}
+
+#prevBtn, #nextBtn {
+    width: 5em;
+}
+
+#statusFilter {
+    height: 2em;
+    width: 8em;
+    cursor: pointer;
+}
+
+.filtering {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0 1rem;
+    color: #555;
+}
+
+.meta .right-side {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.main-body {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+}
+
+#pageSizeInput {
+    width: 60px;
+}
+.status {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status.open {
+  color: #dc3545;
+}
+
+.status.in_progress {
+  color:  #fd7e14;
+}
+
+.status.resolved {
+  color:  #28a745;
+}
+
+.incident {
+    padding: 0.75em;
+    list-style-type: none;
+}
+
+#loading {
+  position: relative;
+  z-index: 10;
+}
+
+#list {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#success-message {
+    display: none;
+    color: green;
+    text-align: center;
+}
+
+.hidden-btn {
+  display: none !important;
+}
