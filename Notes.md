@@ -12,7 +12,7 @@ Online resources I accessed for this project included:
 
 __**Approach**__
 
-**Getting Started**: My first step was to research the steps necessary to set up the project files/directories, and what sort of frameworks or libraries would be needed for the backend. I did have prior experience with Django for a personal project I worked on in the past, but I needed to brush-up on the basics. I used a combination of ChatGPT, StackOverflow, and other online resources for this, as I did for most of the project. In general, I use AI to teach me concepts and terms, rather than to directly write code for me, unless it's for housekeeping code (e.g. testing, automatic incident creation) or chunks of code that have complicated formatting, like API calls or string manipulation.
+**Getting Started**: My first step was to research the steps necessary to set up the project files/directories, and what sort of frameworks or libraries would be needed for the backend. I did have prior experience with Django for a personal project I worked on in the past, but I needed to brush-up on the basics. I used a combination of ChatGPT, StackOverflow, and other online resources for this, as I did for most of the project. In general, I use AI to teach me concepts and terms, rather than to directly write code for me, unless it's for housekeeping code (e.g. testing, automatic incident creation, quick bug fixes) or chunks of code that have complicated formatting, like API calls or string manipulation.
 
 The second step was to set up the venv in order to isolate this project's dependencies from the rest of my system, and also allowing for easy portability, as others could run my project using the specifications included in requirements.txt.
 
