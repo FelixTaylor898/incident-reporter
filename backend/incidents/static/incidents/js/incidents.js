@@ -216,10 +216,7 @@ function renderList(results) { // takes api results as a parameter
                             detail: "Delete failed"
                         }));
                         alert("Delete failed: " + JSON.stringify(err));
-                    }
-                    // show a small success message every time the delete finishes
-                    showSuccessMessage("Incident deleted successfully!");
-                
+                    }            
             });
         }
 
