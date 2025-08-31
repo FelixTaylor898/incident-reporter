@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="author" content="Felix Taylor">
+      <title>Incident Reports</title>
+
+      <link rel="stylesheet" href="{% static 'incidents/style.css' %}">
+
+      <!-- bootstrap imports -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   </head>
+
+   <body class="p-3 mb-2 bg-light text-dark">
+
+      <!-- title section -->
+      <div class="p-3 mb-2 bg-white text-dark border">
+         <h1 class="text-center">Incident Reports</h1>
+      </div>
+
+      <div class="main-body">
+         <div class="meta">
+            <!-- page info (set by js) -->
+            <span id="countLabel"></span>
+
+            <!-- right side controls sit in a single line with small gaps -->
+            <div class="right-side d-flex align-items-center gap-2">
+               <!-- status filtering -->
+               <label for="statusFilter" class="mb-0">Status:</label>
+               <select id="statusFilter" class="bg-white text-dark rounded-pill text-center">
+                  <option value="">All</option>
+                  <option value="open">Open</option>
+                  <option value="in_progress">In Progress</option>
+                  <option value="resolved">Resolved</option>
+               </select>
+               <button id="applyFilter" class="rounded-pill border border-primary btn-info text-dark">Apply</button>
+               
+               <!-- page size control (how many incidents per page) -->
+               <label for="pageSizeInput" class="mb-0 ms-2">Per page:</label>
+               <input id="pageSizeInput" class="text-center rounded-pill border bg-white" type="number" min="1" max="100" value="10" style="width:80px," />
+               
+               <!-- pagination buttons (enabled/disabled by js) -->
+               <button id="prevBtn" class="rounded-pill border bg-white ms-2" disabled>« Prev</button>
+               <button id="nextBtn" class="rounded-pill border bg-white" disabled>Next »</button>
+            </div>
+         </div>
+
+         <!-- loading icon -->
+         <!-- hidden by default, shown by js during the first load -->
+         <div id="loading" class="text-center my-3" style="display: none,">
+            <div class="spinner-border text-primary" role="status">
+               <span class="visually-hidden">Loading...</span>
+            </div>
+         </div>
+
+         <!-- message for successful actions (shown and hidden by js) -->
+         <div id="success-message"></div>
+
+         <!-- unordered list where incidents are rendered -->
+         <!-- js clears and fills this with list items built from the template below -->
+         <ul id="list" class="mt-2"></ul>
+
+         <!-- template used by js to render each incident row -->
+         <!-- the template stays hidden, js clones its content for each item -->
+         <template id="row">
+            <li class="incident mb-2 bg-white text-dark border rounded position-relative">
+               <!-- delete button in the top-right corner (handled by js) -->
+               <button type="button" class="delete btn-close position-absolute end-0 m-2" aria-label="Delete"></button>
+
+               <strong class="title"></strong><br>
+               <span class="location"></span><br>
+               <span class="created"></span><br>
+
+               <div class="status-line d-flex align-items-center justify-content-between mt-2">
+                  <span class="status"></span>
+
+                  <!-- cycle status button (wired up by js, hidden when resolved) -->
+                  <button
+                     class="rounded-pill btn btn-primary status-select px-3 py-1 d-inline-flex align-items-center justify-content-center lh-1">
+                     Cycle Status
+                  </button>
+               </div>
+            </li>
+         </template>
+
+         <!-- incident creation form -->
+         <!-- simple centered form, submit handled by js -->
+         <form id="create" class="mt-4 text-center">
+            <h2 class="mb-3">Create New Incident</h2>
+
+            <!-- title input -->
+            <div class="mb-3 d-flex justify-content-center">
+               <input 
+                  type="text" 
+                  name="title" 
+                  class="form-control w-25" 
+                  placeholder="Title" 
+                  required 
+               />
+            </div>
+
+            <!-- location input -->
+            <div class="mb-3 d-flex justify-content-center">
+               <input 
+                  type="text" 
+                  name="location" 
+                  class="form-control w-25" 
+                  placeholder="Location" 
+                  required 
+               />
+            </div>
+
+            <!-- submit button -->
+            <div class="mb-3 d-flex justify-content-center">
+               <button 
+                  type="submit" 
+                  class="btn btn-success rounded-pill px-4"
+               >
+                  Add Incident
+               </button>
+            </div>
+         </form>
+      </div>
+
+      <script src="{% static 'incidents/js/incidents.js' %}"></script>
+   </body>
+</html>
