@@ -256,9 +256,9 @@ async function loadByUrl(url) {
         const currentPage = pageParam ? parseInt(pageParam, 10) : 1; // parse the current page, else 1
 
         // displays the current page number and how many items are shown out of how many there are total
-        const countEl = document.getElementById("countLabel");
-        if (countEl) {
-            countEl.textContent = `Page ${currentPage} — Showing ${showingCount} of ${totalCount} total incidents.`;
+        const countElement = document.getElementById("countLabel");
+        if (countElement) {
+            countElement.textContent = `Page ${currentPage} — Showing ${showingCount} of ${totalCount} total incidents.`;
         }
 
         // render the list and set paging links based on the response shape

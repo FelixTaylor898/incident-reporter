@@ -35,5 +35,4 @@ class IncidentReportSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 f"Cannot change status from '{current}' to '{value}'."
             )
-
         return value
